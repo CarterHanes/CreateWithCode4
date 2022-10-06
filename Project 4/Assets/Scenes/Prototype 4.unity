@@ -641,6 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hasPowerup: 0
+  powerupStrength: 37.79
 --- !u!1 &2123352523
 GameObject:
   m_ObjectHideFlags: 0
