@@ -14,6 +14,7 @@ public class SpawnManagerX : MonoBehaviour
     public int enemyCount;
     public int waveCount = 1;
 
+    
 
     public GameObject player;
 
@@ -55,12 +56,14 @@ public class SpawnManagerX : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Powerup").Length == 0) // check that there are zero powerups
         {
             Instantiate(powerupPrefab, GenerateSpawnPosition() + powerupSpawnOffset, powerupPrefab.transform.rotation);
+            
         }
 
         // Spawn number of enemy balls based on wave number
         for (int i = 0; i < (waveCount); i++)
         {
-            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+            EnemyX enemy = Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation).GetComponent<EnemyX>();
+            enemy.speed += waveCount;
         }
 
         waveCount++;
